@@ -65,7 +65,7 @@ class Helper:
 		exit(0)
 
 	def is_linux(self):
-		if not platform.find("linux") == 0:
+		if not platform.lower().find("linux") == 0:
 			IS_LINUX = True
 		
 	def print_error(self, error, fatal_error = False):
