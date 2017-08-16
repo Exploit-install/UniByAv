@@ -187,7 +187,7 @@ if __name__ == "__main__":
 			current = current.replace("\\x", "\\x0")
 		encoded_shellcode += current
 	
-	final = ASM_DECODER.replace("[OPCODE]", helper.to_hex(encoded_shellcode))
+	final = ASM_DECODER.replace("[OPCODE]", encoded_shellcode)
 	final = final.replace("[MAGIC]", helper.to_hex(magic))
 	
 	shellcode_size = len(encoded_shellcode) / 4
