@@ -143,7 +143,7 @@ if __name__ == "__main__":
 	exe = helper.rand_vars(helper.load_file("templates/template.c", True))
 	evasion = ""
 	
-	if len(sys.argv) >= 4 :
+	if len(sys.argv) > 4 :
 		CUSTOM_CONFIG = True
 		config = sys.argv[4]
 		helper.parse_config(config)
