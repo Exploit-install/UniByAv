@@ -183,16 +183,17 @@ if __name__ == "__main__":
 		if j == 4:
 			j = 0
 		current = hex(ord(shellcode[i]) ^ ord(xor_key[j])).replace("0x", "\\x")
+		
 		if len(current) == 3:
 			current = current.replace("\\x", "\\x0")
 		encoded_shellcode += current
 	
 	final = ASM_DECODER.replace("[OPCODE]", encoded_shellcode)
-	final = final.replace("[MAGIC]", helper.to_hex(magic))
+	final = final.replace("[MAGIC]", helper.to_hex(magic[::-1]))
 	
-	shellcode_size = (len(encoded_shellcode) / 4) - 4
+	shellcode_size = (len(encoded_shellcode) / 4)
 	number_of_chunk = helper.to_hex(struct.pack("<i", shellcode_size / 4))
-	shellcode_size = helper.to_hex(struct.pack("<i", shellcode_size))
+	shellcode_size = helper.to_hex(struct.pack("<i", shellcode_size - 4))
 	
 	final = final.replace("[FULL_SIZE]", shellcode_size)
 	final = final.replace("[NUMBER_OF_CHUNK]", number_of_chunk)
