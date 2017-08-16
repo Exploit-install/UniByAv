@@ -32,13 +32,13 @@ Self decoding payload written in assembly
 
 Predefined configuation file can be found in configs folder.
 
-*process
+###### process
 Check if a specific process is running. If it does not run the binary exit without running the payload.
 
-*time
+###### time
 Check if SleepEx was hooked. If it return bogus information it exit without running the payload.
 
-*domain
+###### domain
 Check if the current user is part of the defined domain. If it is not the case it exit without running the payload.
 
 # Requirement
