@@ -149,7 +149,7 @@ if __name__ == "__main__":
 		helper.parse_config(config)
 		
 		for module in helper.get_config("modules"):
-			evasion += helper.load_file("templates/%s.c" % module, True)
+			evasion += helper.load_file("templates/evasion/%s.c" % module, True)
 			helper.print_info("*** Loading %s evasion module" % module)
 		
 		variables = helper.get_config("vars")
