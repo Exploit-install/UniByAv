@@ -31,6 +31,7 @@ Decoder assembly:
 import os
 import re
 import sys
+import json
 import string
 import random
 import subprocess
@@ -48,7 +49,8 @@ class Helper:
 
 	def __init__(self):
 		self.is_linux()
-
+		self.config = {}
+		
 	def banner(self):
 		print "UniByAv%s Shellcode encoder tool / Mr.Un1k0d3r RingZer0 Team 2014" % VERSION
 		print "Currently running under (%s) LINUX switch is set to %d" % (platform, IS_LINUX) 
@@ -73,6 +75,20 @@ class Helper:
 			
 	def print_info(self, buffer):
 		print "\033[36m[+]\t%s\033[00m" % buffer
+
+	def parse_config(self, path):
+		buffer = self.load_file(path, True)
+		try:
+			self.config = json.loads(buffer)
+		except:
+			self.print_error("\"%s\" is not a valid config file." % path, True)
+		return self
+    
+	def get_config(self, key):
+		if self.config.has_key(key):
+			return self.config[key]
+		else:
+			self.print_error("\"%s\" key not found in the config file." % key, True)
 
 	def load_file(self, path, fatal_error = False):
 		data = ""
@@ -125,12 +141,21 @@ if __name__ == "__main__":
 	number_of_chunk = 0
 	final = ""
 	exe = helper.rand_vars(helper.load_file("templates/template.c", True))
-	print exe
+	evasion = ""
 	
-	if len(sys.argv) <= 4 :
+	if len(sys.argv) >= 4 :
 		CUSTOM_CONFIG = True
 		config = sys.argv[4]
-    
+		helper.parse_config(config)
+		
+		for module in helper.get_config("modules"):
+			evasion += helper.load_file("templates/%s.c" % module, True)
+			helper.print_info("*** Loading %s evasion module" % module)
+		
+		variables = helper.get_config("vars")
+		for variable in variables.keys():
+			evasion = evasion.replace("[%s]" % variable, variables[variable])
+		
 	if IS_GCC_SET:
 		if not os.path.isfile(gccpath + "mingw32-gcc.exe"):
 			helper.print_error("%smingw32-gcc.exe not found..." % gccpath, True)
@@ -221,7 +246,7 @@ if __name__ == "__main__":
 	.replace("[FUNC_NAME]", func_name) \
 	.replace("[KERNEL32]", kernel32_c_var) \
 	.replace("[DEP]", SetProcessDEPPolicy_c_var) \
-	.replace("[EVASION]", "")
+	.replace("[EVASION]", evasion)
 	
 	open("%s.c" % outfile, "wb+").write(exe)
 	
