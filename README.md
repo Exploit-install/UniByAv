@@ -22,7 +22,7 @@ Self decoding payload written in assembly
 [+]     Generating int array for "kernel32.dll". Array size is: 12
 [+]     Generating int array for "SetProcessDEPPolicy". Array size is: 19
 [+]     Compiling the final executable
-[+]     /cygdrive/c/Users/charles.hamilton/Desktop/output/test.exe has been created
+[+]     /cygdrive/c/Users/Mr.Un1k0d3r/Desktop/output/test.exe has been created
 [+]     Generation completed
 ```
 
