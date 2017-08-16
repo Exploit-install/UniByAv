@@ -1,0 +1,6 @@
+{
+        "modules": ["domain"],
+        "vars": {
+                        "DOMAIN": "RingZer0"
+                }
+}
