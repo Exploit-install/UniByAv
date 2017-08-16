@@ -24,6 +24,7 @@ Self decoding payload written in assembly
 [+]     Compiling the final executable
 [+]     /cygdrive/c/Users/charles.hamilton/Desktop/output/test.exe has been created
 [+]     Generation completed
+```
 
 # Requirement
 On Windows
