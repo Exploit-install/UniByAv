@@ -26,7 +26,7 @@ Self decoding payload written in assembly
 [+]     Generation completed
 ```
 
-[example](https://user-images.githubusercontent.com/4238766/29378637-d3e9c4e8-828d-11e7-9ce2-83e18a1ee931.png)
+[image](https://user-images.githubusercontent.com/4238766/29378637-d3e9c4e8-828d-11e7-9ce2-83e18a1ee931.png)
 
 # Requirement
 On Windows
