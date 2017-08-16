@@ -28,6 +28,19 @@ Self decoding payload written in assembly
 
 ![image](https://user-images.githubusercontent.com/4238766/29378637-d3e9c4e8-828d-11e7-9ce2-83e18a1ee931.png)
 
+# Evasion technique 
+
+Predefined configuation file can be found in configs folder.
+
+*process
+Check if a specific process is running. If it does not run the binary exit without running the payload.
+
+*time
+Check if SleepEx was hooked. If it return bogus information it exit without running the payload.
+
+*domain
+Check if the current user is part of the defined domain. If it is not the case it exit without running the payload.
+
 # Requirement
 On Windows
 ```
