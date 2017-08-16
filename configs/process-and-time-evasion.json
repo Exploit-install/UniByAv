@@ -1,0 +1,7 @@
+{
+        "modules": ["process", "time"],
+        "vars": {
+                        "PROCESS": "OUTLOOK.exe",
+                        "TIME": 10000
+                }
+}
