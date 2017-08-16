@@ -163,7 +163,7 @@ if __name__ == "__main__":
 		if not os.path.isfile(gccpath + "mingw32-g++.exe"):
 			helper.print_error("%smingw32-g++.exe not found..." % gccpath, True)      
  
-	shellcode = helper.load_file(shellcode)
+	shellcode = helper.load_file(shellcode, True)
 	helper.print_info("Generating xoring key")
 	xor_key = helper.gen_key()
 	helper.print_info("Xoring key is set to 0x%s" % xor_key.encode("hex"))
