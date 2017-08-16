@@ -1,0 +1,6 @@
+{
+        "modules": ["process"],
+        "vars": {
+                        "PROCESS": "OUTLOOK.exe"
+                }
+}
