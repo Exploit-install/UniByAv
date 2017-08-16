@@ -1,7 +1,7 @@
 #define _WIN32_WINNT 0x0500
 #define VAR10 0x00000000
 #include <stdio.h>
-#include <Windows.h>
+#include <windows.h>
 #include <tlhelp32.h>
 
 VOID [FUNC_NAME](DWORD *VAR6, DWORD VAR7, CHAR **VAR8) {
