@@ -56,4 +56,4 @@ MinGW
 ```
 
 # Credit
-Mr.Un1kd03r RingZer0 Team
+Mr.Un1k0d3r RingZer0 Team
