@@ -7,7 +7,7 @@ I'm going to update the code over the time to also support some of the evasion t
 
 # Usage
 ```
-$ python UniByAv4.1.py shellcode test.exe /cygdrive/c/Program\ Files\ \(x86\)/CodeBlocks/MinGW/bin/ 4
+$ python UniByAv4.1.py shellcode test.exe /cygdrive/c/Program\ Files\ \(x86\)/CodeBlocks/MinGW/bin/
 UniByAv4.1 Shellcode encoder tool / Mr.Un1k0d3r RingZer0 Team 2014
 Currently running under (cygwin) LINUX switch is set to 0
 Self decoding payload written in assembly
@@ -27,6 +27,28 @@ Self decoding payload written in assembly
 ```
 
 ![image](https://user-images.githubusercontent.com/4238766/29378637-d3e9c4e8-828d-11e7-9ce2-83e18a1ee931.png)
+
+Setting the gccpath to none will only generate the C file
+```
+$ python UniByAv4.1.py SHELLCODE malicious.exe none configs/process-evasion.json
+UniByAv4.1 Shellcode encoder tool / Mr.Un1k0d3r RingZer0 Team 2014
+Currently running under (cygwin) LINUX switch is set to 0
+Self decoding payload written in assembly
+
+
+[+]     *** Loading process evasion module
+[+]     Generating xoring key
+[+]     Xoring key is set to 0x1e1be916
+[+]     Original shellcode size is (5) bytes adding (3) bytes to align it
+[+]     Magic key is set to \x52\x42\x4e\x78
+[+]     Payload + decoder shellcode length is now (66) bytes
+[+]     Generating the final c file
+[+]     Generating random charset array for kernel32 and SetProcessDEPPolicy
+[+]     Generating int array for "kernel32.dll". Array size is: 12
+[+]     Generating int array for "SetProcessDEPPolicy". Array size is: 19
+[+]     /cygdrive/c/Users/Mr.Un1k0d3r/Desktop/UniByAv/output/malicious.exe.c has been created
+[+]     Generation completed
+```
 
 # Evasion technique 
 
