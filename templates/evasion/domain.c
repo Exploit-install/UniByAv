@@ -30,3 +30,4 @@
     if(strcmp(username, "[DOMAIN]") != 0) {
         ExitProcess(0);
     }
+    GlobalFree(username);
