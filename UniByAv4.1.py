@@ -241,7 +241,6 @@ if __name__ == "__main__":
 	c_code_output += func_name + "(" + SetProcessDEPPolicy_var + ", " + str(len(SetProcessDEPPolicy_string)) + ", &" + SetProcessDEPPolicy_c_var + ");\n\t"
 	  
 	exe = exe.replace("[SHELLCODE]", final) \
-	.replace("[RAND]", helper.generate_random(random.randrange(10, 10000))) \
 	.replace("[FUNC_ARRAY]", c_code_output) \
 	.replace("[CHARSET_ARRAY]", char_charset) \
 	.replace("[FUNC_NAME]", func_name) \
